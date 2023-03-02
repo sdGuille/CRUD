@@ -8,4 +8,4 @@ def home(request):
 
 
 def about_us(request):
-    return render(request, 'about_us.html')
+    return render(request, 'pages/about_us.html')
