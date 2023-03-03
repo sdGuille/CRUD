@@ -14,6 +14,10 @@ def about_us(request):
 def books(request):
     return render(request, 'books/index.html')
 
+
 def create(request):
     return render(request, 'books/create.html')
 
+
+def update(request):
+    return render(request, 'books/update.html')
