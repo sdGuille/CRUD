@@ -4,5 +4,15 @@
 
 
 {% block content %}
-Form to update Book
+<div class="card">
+    <div class="card-header">
+        Update book information
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Book information</h4>
+        {% include 'books/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+</div>
 {% endblock content %}
