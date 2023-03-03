@@ -4,8 +4,13 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse("<h1>Welcome to my CRUD application</h1>")
+    return render(request, "pages/home.html")
 
 
 def about_us(request):
     return render(request, 'pages/about_us.html')
+
+
+def books(request):
+    return render(request, 'books/index.html')
+
