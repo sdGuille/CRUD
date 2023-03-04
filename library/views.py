@@ -1,6 +1,7 @@
 from django.shortcuts import render
 # from django.http import HttpResponse
 from .models import Book
+from .forms import FormBook
 # Create your views here
 
 
@@ -18,7 +19,8 @@ def books(request):
 
 
 def create(request):
-    return render(request, 'books/create.html')
+    form = FormBook(request.POST or None)
+    return render(request, 'books/create.html', {'form': form})
 
 
 def update(request):
