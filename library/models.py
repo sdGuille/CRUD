@@ -12,3 +12,8 @@ class Book(models.Model):
     def __str__(self):
         row = "Title: " + self.title + "-" + "Description: " + self.description
         return row
+    
+    def delete(self, using=None, keep_parents=False):
+        self.image.storage.delete(self.image.name)
+        super().delete()
+        
