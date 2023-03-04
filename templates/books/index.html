@@ -27,7 +27,9 @@
                     <tr class="">
                         <td>{{ book.id }}</td>
                         <td>{{ book.title}}</td>
-                        <td>{{ book.image }}</td>
+                        <td>
+                            <img src="{{ book.image.url }}" height="100" />
+                        </td>
                         <td>{{ book.description }}</td>
                         <td>
                             <a name="" id="" class="btn btn-info" href="{% url 'update' %}" role="button">Update</a>
