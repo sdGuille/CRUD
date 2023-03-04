@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
+from .models import Book
 # Create your views here
 
 
@@ -12,7 +13,8 @@ def about_us(request):
 
 
 def books(request):
-    return render(request, 'books/index.html')
+    my_books = Book.objects.all()
+    return render(request, 'books/index.html', {'my_books': my_books})
 
 
 def create(request):
