@@ -23,15 +23,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for book in my_books %}
                     <tr class="">
-                        <td scope="row">1</td>
-                        <td>Two Scoops of Django</td>
-                        <td>Image.jpg</td>
-                        <td>A very good guide about best practices of Django</td>
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.title}}</td>
+                        <td>{{ book.image }}</td>
+                        <td>{{ book.description }}</td>
                         <td>
                             <a name="" id="" class="btn btn-info" href="{% url 'update' %}" role="button">Update</a>
                             | <a name="" id="" class="btn btn-danger" href="#" role="button">Delete</a></td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
