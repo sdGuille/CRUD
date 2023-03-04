@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from .models import Book
 from .forms import FormBook
@@ -19,7 +19,10 @@ def books(request):
 
 
 def create(request):
-    form = FormBook(request.POST or None)
+    form = FormBook(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('books')
     return render(request, 'books/create.html', {'form': form})
 
 
