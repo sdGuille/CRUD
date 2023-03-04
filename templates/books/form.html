@@ -1,8 +1,18 @@
 <form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+
+  {% for sector in form %}
     <div class="mb-3">
-      <label for="" class="form-label">Name</label>
-      <input type="text"
-        class="form-control" name="" id="" aria-describedby="helpId" placeholder="Name">
-      <small id="helpId" class="form-text text-muted">Help text</small>
+      <label for="" class="form-label">{{ sector.label }}</label>
+      <input
+        type="{{ sector.field.widget.input_type }}"
+        class="form-control"
+        name="{{ sector.name }}"
+        id=""
+        aria-describedby="helpId"
+        placeholder="{{ sector.label }}">
     </div>
+    <div class="col-12 help-text">{{ sector.errors }}</div>
+  {% endfor %}
+  <input name="" id="" class="btn btn-success" type="submit" value="Send">
 </form>
