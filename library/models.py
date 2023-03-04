@@ -10,4 +10,5 @@ class Book(models.Model):
     description = models.TextField(verbose_name="Description", null=True)
 
     def __str__(self):
-        return self.title
+        row = "Title: " + self.title + "-" + "Description: " + self.description
+        return row
