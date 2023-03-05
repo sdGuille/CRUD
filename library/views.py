@@ -28,3 +28,9 @@ def create(request):
 
 def update(request):
     return render(request, 'books/update.html')
+
+
+def delete(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect('books')
