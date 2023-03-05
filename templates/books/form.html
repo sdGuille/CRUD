@@ -10,7 +10,9 @@
         name="{{ sector.name }}"
         id=""
         aria-describedby="helpId"
-        placeholder="{{ sector.label }}">
+        placeholder="{{ sector.label }}"
+        value="{{ sector.value | default:'' }}"
+      />
     </div>
     <div class="col-12 help-text">{{ sector.errors }}</div>
   {% endfor %}
