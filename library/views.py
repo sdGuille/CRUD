@@ -29,6 +29,9 @@ def create(request):
 def update(request, id):
     book = Book.objects.get(id=id)
     form = FormBook(request.POST or None, request.FILES or None, instance=book)
+    if form.is_valid() and request.POST:
+        form.save()
+        return redirect('books')
     return render(request, 'books/update.html', {"form": form})
 
 
