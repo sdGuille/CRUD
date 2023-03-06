@@ -4,7 +4,8 @@
   {% for sector in form %}
     <div class="mb-3">
       <label for="" class="form-label">{{ sector.label }}</label>
-      {% if sector.field.widget.input_type = 'file' and sector.value %}
+      {% if sector.field.widget.input_type == 'file' and sector.value %}
+      <br/>
       <img src="{{MEDIA_URL}}/images/{{ sector.value }}"width="100" alt="" srcset="">
       {% endif %}
 
