@@ -1,17 +1,15 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-import environ
 
-
-env = environ.Env()
-environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -68,9 +66,9 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASS'),
+        'NAME': str(os.getenv('DATABASE_NAME')),
+        'USER': str(os.getenv('DATABASE_USER')),
+        'PASSWORD': str(os.getenv('DATABASE_PASS')),
         'HOST': 'localhost',
         'PORT': '5432',
     }
